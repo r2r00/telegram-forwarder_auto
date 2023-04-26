@@ -39,6 +39,7 @@ except Exception as ap:
     exit(1)
 
 @BotzHubUser.on(events.NewMessage(incoming=True, chats=FROM))
+@BotzHubUser.on(events.NewMessage(incoming=True, chats=FROMTRAN))
 
 async def sender_bH(event):
     for i in FROMTRAN:
@@ -47,10 +48,9 @@ async def sender_bH(event):
                 i,
                 event.message
             )
+            break
         except Exception as e:
             print(e)
-@BotzHubUser.on(events.NewMessage(incoming=True, chats=FROMTRAN))
-async def sender_bH(event):
     for i in FROM:
         try:
             await BotzHubUser.send_message(
@@ -60,6 +60,5 @@ async def sender_bH(event):
             break
         except Exception as e:
                     print(e)
-
 print("Bot has started.")
 BotzHubUser.run_until_disconnected()
