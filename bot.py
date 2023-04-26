@@ -53,7 +53,7 @@ async def sender_bH(event):
             print(e)
 @BotzHubUser.on(events.NewMessage(incoming=True, chats=FROMTRAN))
 async def sender_bH(event):
-    for i in FROM:
+    for i in TO:
         try:
             await BotzHubUser.send_message(
                 i,
