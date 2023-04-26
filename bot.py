@@ -26,10 +26,10 @@ API_HASH = config("API_HASH", default=None)
 SESSION = config("SESSION")
 FROM_ = config("FROM_CHANNEL")
 FROMTRAN_ = config("FROM_TRAN")
-TO_ = config("TO_CHANNEL")
+##TO_ = config("TO_CHANNEL")
 
 FROM = [int(i) for i in FROM_.split()]
-TO = [int(i) for i in TO_.split()]
+##TO = [int(i) for i in TO_.split()]
 FROMTRAN = [int(i) for i in FROMTRAN_.split()]
 try:
     BotzHubUser = TelegramClient(StringSession(SESSION), APP_ID, API_HASH)
@@ -41,7 +41,7 @@ except Exception as ap:
 @BotzHubUser.on(events.NewMessage(incoming=True, chats=FROM))
 @BotzHubUser.on(events.NewMessage(incoming=True, chats=FROMTRAN))
 async def sender_bH(event):
-    for i in TO:
+    for i in FROMTRAN:
         try:
             await BotzHubUser.send_message(
                 i,
