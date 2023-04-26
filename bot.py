@@ -39,7 +39,7 @@ except Exception as ap:
     exit(1)
 
 @BotzHubUser.on(events.NewMessage(incoming=True, chats=FROM))
-@BotzHubUser.on(events.NewMessage(incoming=True, chats=FROMTRAN))
+##@BotzHubUser.on(events.NewMessage(incoming=True, chats=FROMTRAN))
 async def sender_bH(event):
     for i in FROMTRAN:
         try:
