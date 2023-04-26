@@ -47,16 +47,16 @@ async def sender_bH(event):
                 i,
                 event.message
             )
-            for i in FROM:
-                try:
-                    await BotzHubUser.send_message(
-                        i,
-                        event.message
-                    )
-                except Exception as e:
-                    print(e)
         except Exception as e:
             print(e)
+    for i in FROM:
+        try:
+            await BotzHubUser.send_message(
+                i,
+                event.message
+                )
+        except Exception as e:
+                    print(e)
 
 print("Bot has started.")
 BotzHubUser.run_until_disconnected()
